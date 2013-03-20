@@ -5,7 +5,9 @@
 <body>
   {{>loginout}}
   {{>post}}
-  {{>tweet}}
+  <div class="container">
+    {{>tweet}}
+  </div>
 </body>
 
 <template name="loginout">
@@ -22,10 +24,14 @@
 
 <template name="tweet">
   {{#each tweets}}
-  <p>{{name}}</p>
-  <p>{{disp}}</p>
-  <p><i>{{time}}</i></p>
-  <h3>{{text}}</h3>
+  <div class="row-fluid">
+    <div class="span12">
+    <p>{{name}}</p>
+    <p>{{disp}}</p>
+    <p class="time" data-time="{{time}}"></p>
+    <h3>{{text}}</h3>
+    </div>
+  </div>
   {{/each}}
 </template>
 
