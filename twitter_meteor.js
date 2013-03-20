@@ -38,7 +38,7 @@ if (M.isClient) {
   });
 
   T.tweet.tweets = function() {
-    var cursor = Tweets.find();
+    var cursor = Tweets.find({},{sort:{'time':-1},limit:30});
     return cursor;
   };
 }
