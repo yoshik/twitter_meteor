@@ -13,12 +13,18 @@ if (M.isClient) {
 
   T.loginout.events({
     'click #login' : function () {
-      M.loginWithTwitter(function(err){log(err);});
+      M.loginWithTwitter(function(err){
+        M.call("screenName", function(err,name){screenName="@"+name;});
+        log(err);
+      });
     }
   });
   T.loginout.events({
     'click #logout' : function () {
-      M.logout(function(err){log(err);});
+      M.logout(function(err){
+        screenName='anonymous';
+        log(err);
+      });
     }
   });
   T.post.events({
