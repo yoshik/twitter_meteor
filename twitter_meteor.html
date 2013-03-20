@@ -14,8 +14,10 @@
 </template>
 
 <template name="post">
-  <a id="send" class="btn btn-primary">post</a>
+  {{#if currentUser}}
   <input type="text" id="text" />
+  <a id="send" class="btn btn-primary">post</a>
+  {{/if}}
 </template>
 
 <template name="tweet">
