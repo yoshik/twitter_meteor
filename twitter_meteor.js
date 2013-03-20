@@ -1,9 +1,11 @@
-if (Meteor.isClient) {
-  Template.hello.greeting = function () {
+var M = Meteor;
+if (M.isClient) {
+  var T = Template;
+  T.hello.greeting = function () {
     return "Welcome to twitter_meteor.";
   };
 
-  Template.hello.events({
+  T.hello.events({
     'click input' : function () {
       // template data, if any, is available in 'this'
       if (typeof console !== 'undefined')
@@ -12,8 +14,8 @@ if (Meteor.isClient) {
   });
 }
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
+if (M.isServer) {
+  M.startup(function () {
     // code to run on server at startup
   });
 }
