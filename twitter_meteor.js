@@ -44,7 +44,7 @@ if (M.isClient) {
         if(name){
           var tweet = {
             'name': M.user().profile.name,
-            'disp': '@'+name,
+            'disp': name,
             'text': $("#text").val(),
             'time': Date.now()
           };
@@ -66,7 +66,7 @@ if (M.isClient) {
 if (M.isServer) {
 
   M.startup(function () {
-    //Tweets.remove({});
+    Tweets.remove({});
     var myConsumerKey = "xxxxxxxxxxxxxxxxxxxx";
     var myConsumerSec = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
     Accounts.loginServiceConfiguration.insert({
