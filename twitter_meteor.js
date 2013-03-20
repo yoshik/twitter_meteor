@@ -27,7 +27,8 @@ if (M.isClient) {
       M.call("screenName", function(err,name){
         if(name){
           var tweet = {
-            'user': M.user().profile.name+'@'+name,
+            'name': M.user().profile.name,
+            'disp': '@'+name,
             'text': $("#text").val(),
             'time': Date.now()
           };
