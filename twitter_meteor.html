@@ -3,33 +3,39 @@
 </head>
 
 <body>
+<br/>
+
   {{>loginout}}
+
+  {{#if currentUser}}
   {{>post}}
   <div class="container">
     {{>tweet}}
   </div>
+  {{/if}}
+
 </body>
 
 <template name="loginout">
-  {{#if currentUser}} <a class="btn" id="logout">logout</a>
-  {{else}} <a class="btn" id="login">login</a> {{/if}}
+  {{#if currentUser}} {{else}} <a class="btn" id="login">login</a> {{/if}}
 </template>
 
 <template name="post">
-  {{#if currentUser}}
-  <input type="text" id="text" />
-  <a id="send" class="btn btn-primary">post</a>
-  {{/if}}
+  <div class="text-center">
+    <input type="text" id="text" />
+    <a id="send" class="btn btn-primary">post</a>
+  </div>
 </template>
 
 <template name="tweet">
   {{#each tweets}}
   <div class="row-fluid">
     <div class="span12">
-    <p>{{name}}</p>
-    <p>{{disp}}</p>
-    <p class="time" data-time="{{time}}"></p>
-    <h3>{{text}}</h3>
+      <div class="cell">
+        <span class="time pull-right" data-time="{{time}}"></span>
+        <p><strong>{{name}}</strong> {{disp}}</p>
+        <h3>{{text}}</h3>
+      </div>
     </div>
   </div>
   {{/each}}
