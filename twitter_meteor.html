@@ -3,10 +3,27 @@
 </head>
 
 <body>
-  {{> loginout}}
+  {{>loginout}}
+  {{>post}}
+  {{>tweet}}
 </body>
 
 <template name="loginout">
   {{#if currentUser}} <a class="btn" id="logout">logout</a>
   {{else}} <a class="btn" id="login">login</a> {{/if}}
 </template>
+
+<template name="post">
+  <a id="send" class="btn btn-primary">post</a>
+  <input type="text" id="text" />
+</template>
+
+<template name="tweet">
+  {{#each tweets}}
+  <h4>{{tweet}}</h4>
+  <p>{{user}}</p>
+  <p><i>{{time}}</i></p>
+  <h1>{{text}}</h1>
+  {{/each}}
+</template>
+
