@@ -1,10 +1,10 @@
 var M = Meteor;
 var log = console.log;
+if (M.isClient) {var T = Template;}
 
 var Tweets = new M.Collection("tweets");
 
 if (M.isClient) {
-  var T = Template;
 
   T.loginout.events({
     'click #login' : function () {
@@ -42,6 +42,7 @@ if (M.isClient) {
     var cursor = Tweets.find({},{sort:{'time':-1},limit:30});
     return cursor;
   };
+
 }
 
 if (M.isServer) {
