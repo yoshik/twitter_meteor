@@ -3,11 +3,10 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> loginout}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="loginout">
+  {{#if currentUser}} <a class="btn" id="logout">logout</a>
+  {{else}} <a class="btn" id="login">login</a> {{/if}}
 </template>
